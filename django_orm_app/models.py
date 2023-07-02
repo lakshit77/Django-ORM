@@ -2,7 +2,10 @@ from django.db import models
 
 class Author(models.Model):
     name = models.CharField(max_length=200)
-    email = models.EmailField()
+    email = models.EmailField(null = True)
+    age = models.IntegerField(null = True)
+    creation_date = models.DateTimeField(null=False, auto_now_add=True)
+    updation_date = models.DateTimeField(null=True, auto_now=True)
 
     def __str__(self):
         return self.name
