@@ -15,7 +15,8 @@ class Author(models.Model):
     
 class Blog(models.Model):
     name = models.CharField(max_length=100)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, related_name="author_blog")
+    time_to_read = models.IntegerField(null=True)
     tagline = models.TextField()
     creation_date = models.DateTimeField(null=False, auto_now_add=True)
     updation_date = models.DateTimeField(null=True, auto_now=True)
